@@ -1,0 +1,87 @@
+Index: ../../.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"f0e421c6-e85b-44a7-8160-59580f1c1401\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"spring-boot-book-store\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2Phi6U4ew2XaBqzKHTRtx9nhgSE\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/johnnywells/IdeaProjects/The-Book-Store-Web-App&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\n    &quot;ts.external.directory.path&quot;: &quot;/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/03-frontend/the-book-store/src/Images/PublicImages\" />\n      <recent name=\"$PROJECT_DIR$/03-frontend/the-book-store/src/Images/BookImages\" />\n      <recent name=\"$PROJECT_DIR$\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\n      <module name=\"The-Book-Store-Web-App\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\n      <module name=\"The-Book-Store-Web-App\" />\n      <option name=\"filePath\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"f0e421c6-e85b-44a7-8160-59580f1c1401\" name=\"Changes\" comment=\"\" />\n      <created>1683915539774</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1683915539774</updated>\n      <workItem from=\"1683915540932\" duration=\"566000\" />\n      <workItem from=\"1683916141945\" duration=\"4231000\" />\n      <workItem from=\"1684171640667\" duration=\"1670000\" />\n      <workItem from=\"1684177390748\" duration=\"103000\" />\n      <workItem from=\"1684177816881\" duration=\"110000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../.idea/workspace.xml b/../../.idea/workspace.xml
+--- a/../../.idea/workspace.xml	
++++ b/../../.idea/workspace.xml	
+@@ -5,7 +5,12 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="f0e421c6-e85b-44a7-8160-59580f1c1401" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/02-backend/spring-boot-book-store/src/main/java/com/thebookstore/springbootbookstore/config/MyDataRestConfig.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/02-backend/spring-boot-book-store/src/main/java/com/thebookstore/springbootbookstore/dao/BookRepository.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/02-backend/spring-boot-book-store/src/main/java/com/thebookstore/springbootbookstore/entity/Book.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/02-backend/spring-boot-book-store/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/02-backend/spring-boot-book-store/src/main/resources/application.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/03-frontend/the-book-store/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/03-frontend/the-book-store/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -41,7 +46,7 @@
+     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-    &quot;ts.external.directory.path&quot;: &quot;/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;/Users/johnnywells/IdeaProjects/The-Book-Store-Web-App/03-frontend/the-book-store/node_modules/typescript/lib&quot;,
+     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+ }</component>
+@@ -52,21 +57,6 @@
+       <recent name="$PROJECT_DIR$" />
+     </key>
+   </component>
+-  <component name="RunManager">
+-    <configuration default="true" type="JetRunConfigurationType">
+-      <module name="The-Book-Store-Web-App" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+-      <module name="The-Book-Store-Web-App" />
+-      <option name="filePath" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -80,6 +70,11 @@
+       <workItem from="1684171640667" duration="1670000" />
+       <workItem from="1684177390748" duration="103000" />
+       <workItem from="1684177816881" duration="110000" />
++      <workItem from="1684178813376" duration="257000" />
++      <workItem from="1684179087695" duration="66000" />
++      <workItem from="1684179468825" duration="40000" />
++      <workItem from="1684185054912" duration="20000" />
++      <workItem from="1684263436382" duration="40000" />
+     </task>
+     <servers />
+   </component>
+Index: ../../02-backend/spring-boot-book-store/src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/../../02-backend/spring-boot-book-store/src/main/resources/application.properties b/../../02-backend/spring-boot-book-store/src/main/resources/application.properties
+--- a/../../02-backend/spring-boot-book-store/src/main/resources/application.properties	
++++ b/../../02-backend/spring-boot-book-store/src/main/resources/application.properties	
+@@ -1,1 +1,10 @@
++spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
++spring.datasource.url=jdbc:mysql://localhost:3306/reactlibrarydatabase?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
++spring.datasource.username=root
++spring.datasource.password=WelJo26?
++
++spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+ 
++spring.data.rest.base-path=/api
++
++server.port=8081
