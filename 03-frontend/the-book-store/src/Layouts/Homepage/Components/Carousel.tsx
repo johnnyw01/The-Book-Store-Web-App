@@ -1,7 +1,73 @@
 import React from "react";
 import { ReturnBook } from "./ReturnBook";
+import {useEffect, useState} from "react";
+import BookModel from "../../../models/BookModel";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 export const Carousel = () => {
+
+    //Creat 3 states of the carousel:
+
+    //Creates a state of an array of books
+    const [books, setBooks] = useState<BookModel[]>([]);//Last part is "of type array"
+    //Creates a state for loading
+    const [isLoading, setIsLoading] = useState(true);
+    //Creates a state for if the API fails
+    const [httpError, setHttpError] = useState(null);
+
+    //useEffect Hook
+    useEffect(()=>{
+        const fetchBooks = async () => {
+            const baseUrl: string = "http://localhost:8081/api/books";
+            const url: string = `${baseUrl}?page=0&size=9`;
+            const response = await fetch(url);
+
+            if(!response.ok){
+                throw new Error("Something went wrong!");
+            }
+
+            const responseJson = await response.json();
+            const responseData = responseJson._embedded.books;
+
+            const loadedBooks: BookModel[] = [];
+            for(const key in responseData){
+                loadedBooks.push({
+                    id: responseData[key].id,
+                    title: responseData[key].title,
+                    author: responseData[key].author,
+                    description: responseData[key].description,
+                    copies: responseData[key].copies,
+                    copiesAvailable: responseData[key].copiesAvailable,
+                    category: responseData[key].category,
+                    img: responseData[key].img
+                })
+            }
+            setBooks(loadedBooks);
+            setIsLoading(false);
+        };
+        fetchBooks().catch((error:any)=>{
+            setIsLoading(false);
+            setHttpError(error.message);
+        })
+    },[]);
+
+    if(isLoading){
+        return (
+            <div className='container mt-5'>
+                <p>Loading...</p>
+            </div>
+        )
+    }
+
+    if(httpError){
+        return (
+            <div className='container mt-5'>
+                <p>{httpError}</p>
+            </div>
+        )
+    }
+
     return (
         <div className='container mt-5' style={{ height: 550 }}>
             <div className='homepage-carousel-title'>
