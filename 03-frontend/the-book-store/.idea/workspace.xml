@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f64fd37-90a3-46ce-a5cc-37152b05be8b" name="Changes" comment="" />
+    <list default="true" id="8f64fd37-90a3-46ce-a5cc-37152b05be8b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../02-backend/spring-boot-book-store/src/main/java/com/thebookstore/springbootbookstore/config/MyDataRestConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../02-backend/spring-boot-book-store/src/main/java/com/thebookstore/springbootbookstore/dao/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../02-backend/spring-boot-book-store/src/main/java/com/thebookstore/springbootbookstore/entity/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/BookModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02-backend/spring-boot-book-store/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../02-backend/spring-boot-book-store/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +26,10 @@
   </component>
   <component name="ProjectId" id="2PqHdKCL9wH6KKq1HnhDQsynZWV" />
   <component name="ProjectViewState">
+    <option name="foldersAlwaysOnTop" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
@@ -24,14 +38,33 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/johnnywells/IdeaProjects/The-Book-Store-Web-App/03-frontend/the-book-store",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.scopes",
+    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="the-book-store" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="the-book-store" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -41,6 +74,8 @@
       <option name="presentableId" value="Default" />
       <updated>1684177777977</updated>
       <workItem from="1684177781004" duration="17000" />
+      <workItem from="1684179372939" duration="72000" />
+      <workItem from="1684263553677" duration="919000" />
     </task>
     <servers />
   </component>
