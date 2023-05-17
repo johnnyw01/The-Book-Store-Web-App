@@ -21,19 +21,15 @@ export const Carousel = () => {
     useEffect(()=>{
         const fetchBooks = async () => {
             const baseUrl: string = "http://localhost:8082/api/books";
-            const url: string = `${baseUrl}?page=0&size=9`;
-            console.log(url)
+            const url: string = `${baseUrl}?page=0&size=5`;
             const response = await fetch(url);
-            console.log(response)
 
             if(!response.ok){
                 throw new Error("Something went wrong!");
             }
 
             const responseJson = await response.json();
-            console.log(responseJson)
             const responseData = responseJson._embedded.books;
-            console.log(responseData)
 
             const loadedBooks: BookModel[] = [];
             for(const key in responseData){
