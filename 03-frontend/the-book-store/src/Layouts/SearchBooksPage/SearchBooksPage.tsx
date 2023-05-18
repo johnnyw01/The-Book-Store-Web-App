@@ -170,6 +170,9 @@ export const SearchBooksPage =()=>{
                             </div>
                         </div>
                     </div>
+                    {/* The ternary operator checks if the total amount of books is greater than 0. If it is, it renders the section displaying the number of results, the range of displayed items, and the list of books. If the total amount of books is not greater than 0, it renders a message stating that the desired books cannot be found and provides a link to Library Services. */}
+                    {totalAmountOfBooks > 0 ?
+                    <>
                     <div className='mt-3'>
                         <h5>Number of results: ({totalAmountOfBooks})</h5>
                     </div>
@@ -179,6 +182,14 @@ export const SearchBooksPage =()=>{
                     {books.map(book => (
                         <SearchBook book={book} key={book.id} />
                     ))}
+                    </>
+                        :
+                        <div className='mt-5'>
+                            <h3>Can't find what you're looking for?</h3>
+                            <a type='button' className='btn main-color btn-md px-4 me-md-2 mt-3 mb-5 fw-bold text-white' href="#">Library Services</a>
+                        </div>
+                    }
+
                     {/*total pages is greater than 1 (&& means 'render this'), than render the pagination, if not, then it will not render the pagination*/}
                     {totalPages > 1 &&
                     <Pagination currentPage={currentPage} totalPages={totalPages} paginate={paginate} />
