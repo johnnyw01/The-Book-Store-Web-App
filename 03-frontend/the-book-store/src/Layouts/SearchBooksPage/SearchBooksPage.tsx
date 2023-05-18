@@ -3,6 +3,8 @@ import BookModel from "../../models/BookModel";
 import {SpinnerLoading} from "../Utils/SpinnerLoading";
 import {SearchBook} from "./components/SearchBook";
 import {Pagination} from "../Utils/Pagination";
+import { ChangeEvent, KeyboardEvent } from 'react';
+
 
 export const SearchBooksPage =()=>{
     const [books, setBooks] = useState<BookModel[]>([]);
@@ -12,15 +14,25 @@ export const SearchBooksPage =()=>{
     const [booksPerPage] = useState(5);
     const [totalAmountOfBooks, setTotalAmountOfBooks] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
+    const [search, setSearch] = useState('');
+    const [searchUrl, setSearchUrl] = useState('');
 
     //useEffect Hook
     useEffect(()=>{
         const fetchBooks = async () => {
             const baseUrl: string = "http://localhost:8082/api/books";
-            const url: string = `${baseUrl}?page=${currentPage - 1}&size=${booksPerPage}`;
-            console.log(url)
+            let url: string = '';
+
+            //If search URL is equal to an empty string (which is how it starts off as), search for all the books in the database.
+            if(searchUrl === ''){
+                url = `${baseUrl}?page=${currentPage - 1}&size=${booksPerPage}`;
+            }else{
+                // Search URL is equal to the user's query
+                url = baseUrl + searchUrl
+            }
+
             const response = await fetch(url);
-            console.log(response)
+
 
             if(!response.ok){
                 throw new Error("Something went wrong!");
@@ -57,7 +69,8 @@ export const SearchBooksPage =()=>{
         })
         //Each time the useEffect gets called, the window.scrollTo method will scroll to the top of the page
         window.scrollTo(0,0);
-    },[currentPage]);
+        //useEffect will be invoked everytime the current page changes (e.g. pagination change, etc.) or the search URL changes (if a user is searching for a book).
+    },[currentPage, searchUrl]);
 
     if(isLoading){
         return (
@@ -73,6 +86,28 @@ export const SearchBooksPage =()=>{
         )
     }
 
+    // Update the searchHandleChange function to set the search state
+    const searchHandleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setSearch(event.target.value);
+    };
+
+// New function to update the searchUrl state
+    const performSearch = () => {
+        if (search === '') {
+            setSearchUrl('');
+        } else {
+            setSearchUrl(`/search/findByTitleContaining?title=${search}&page=0&size=${booksPerPage}`);
+        }
+    };
+
+// Update the handleEnterKey function to invoke the performSearch function
+    const handleEnterKey = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    };
+
+
     const indexOfLastBook : number = currentPage * booksPerPage;
     const indexOfFirstBook : number = indexOfLastBook - booksPerPage ;
     let lastItem = booksPerPage * currentPage <= totalAmountOfBooks ? booksPerPage * currentPage : totalAmountOfBooks;
@@ -86,9 +121,14 @@ export const SearchBooksPage =()=>{
                     <div className='row mt-5'>
                         <div className='col-6'>
                             <div className='d-flex'>
+                               { /*Input captures the search state change every time a letter is typed in the search bar, the button invokes the searchHandleChange function*/}
                                 <input className='form-control me-2' type='search'
-                                       placeholder='Search' aria-labelledby='Search'/>
-                                <button className='btn btn-outline-success'>
+                                       placeholder='Search' aria-labelledby='Search'
+                                       onChange={searchHandleChange}
+                                       onKeyDown={handleEnterKey}
+                                    />
+                                <button className='btn btn-outline-success'
+                                        onClick={performSearch}>
                                     Search
                                 </button>
                             </div>
