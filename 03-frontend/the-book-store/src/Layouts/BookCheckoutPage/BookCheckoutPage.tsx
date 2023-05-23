@@ -4,6 +4,7 @@ import {SpinnerLoading} from "../Utils/SpinnerLoading";
 import {StarsReview} from "../Utils/StarsReview";
 import {CheckoutAndReviewBox} from "./CheckoutAndReviewBox";
 import ReviewModel from "../../models/ReviewModel";
+import {LatestReviews} from "./LatestReviews";
 
 export const BookCheckoutPage = () => {
 
@@ -28,12 +29,11 @@ export const BookCheckoutPage = () => {
             const response = await fetch(baseUrl);
 
             if(!response.ok){
-                throw new Error("Something went wrong!"); // Throw an error if the response is not OK
+                throw new Error("Something went wrong!");
             }
 
             const responseJson = await response.json();
 
-            // Extracting book data from the response and creating a BookModel object
             const loadedBook: BookModel = {
                 id: responseJson.id,
                 title: responseJson.title,
@@ -46,18 +46,21 @@ export const BookCheckoutPage = () => {
             };
 
             setBook(loadedBook); // Set the loaded book data in the state variable
-            setBook(loadedBook); // Set the loaded book data in the state variable
+
+            setIsLoading(false); // Set isLoading to false after successfully fetching and processing data
         };
+
         fetchBook().catch((error:any)=>{
             setIsLoading(false); // Update the loading state to false
             setHttpError(error.message); // Set the HTTP error message in the state variable
         })
-    },[]);
+    }, []);
+
+
 
     useEffect(() => {
         const fetchBookReviews = async () => {
-
-            const reviewUrl: string = `http://localhost:8082/api/reviews/search/findByBoookId?bookid=${bookId}`;
+            const reviewUrl: string = `http://localhost:8082/api/reviews/search/findByBookId?bookId=${bookId}`;
 
             const responseReviews = await fetch(reviewUrl);
 
@@ -65,7 +68,12 @@ export const BookCheckoutPage = () => {
                 throw new Error("Something went wrong!"); // Throw an error if the response is not OK
             }
 
+            if(!responseReviews.ok){
+                throw new Error(`HTTP error! status: ${responseReviews.status}`);
+            }
+
             const responseJsonReviews = await responseReviews.json();
+
             const responseData = responseJsonReviews._embedded.reviews;
 
             const loadedReviews: ReviewModel [] = []
@@ -87,8 +95,10 @@ export const BookCheckoutPage = () => {
                 const round = (Math.round((weightedStarReviews / loadedReviews.length) * 2) / 2).toFixed(1);
                 setTotalStars(Number(round));
             }
-            setReviews(loadedReviews);
-            setIsLoadingReview(false);
+
+            setReviews(loadedReviews); // set loaded reviews
+
+            setIsLoadingReview(false); // set isLoadingReview to false after successfully fetching and processing data
         };
 
         fetchBookReviews().catch((error: any) => {
@@ -96,6 +106,9 @@ export const BookCheckoutPage = () => {
             setHttpError(error.message);
         });
     }, []);
+
+
+    console.log(isLoadingReview);
 
     if(isLoading || isLoadingReview){
         return (
@@ -106,14 +119,13 @@ export const BookCheckoutPage = () => {
     if(httpError){
         return (
             <div className='container mt-5'>
-                <p>{httpError}</p> // Display an error message if there was an HTTP error
+                <p>{httpError}</p> {/* Display an error message if there was an HTTP error */}
             </div>
         )
     }
 
 
     return (
-        <div>
             <div>
                 <div className='container d-none d-lg-block'>
                     <div className='row mt-5'>
@@ -138,6 +150,7 @@ export const BookCheckoutPage = () => {
                         <CheckoutAndReviewBox book={book} mobile={false} />
                     </div>
                     <hr />
+                    <LatestReviews reviews={reviews} bookId={book?.id} mobile={false} />
                 </div>
                 <div className='container d-lg-none mt-5'>
                     <div className='d-flex justify-content-center align-items-center'>
@@ -160,8 +173,8 @@ export const BookCheckoutPage = () => {
                     </div>
                     <CheckoutAndReviewBox book={book} mobile={true} />
                     <hr />
+                    <LatestReviews reviews={reviews} bookId={book?.id} mobile={true} />
                 </div>
             </div>
-        </div>
     );
 }
