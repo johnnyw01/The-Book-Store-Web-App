@@ -15,7 +15,7 @@ const LoginWidget = ({config}) => {
 
     if(!authState){
         return (<SpinnerLoading />);
-    }
+    };
 
     return authState.isAuthenticated ?
         <Redirect to={{pathname: '/'}} />
