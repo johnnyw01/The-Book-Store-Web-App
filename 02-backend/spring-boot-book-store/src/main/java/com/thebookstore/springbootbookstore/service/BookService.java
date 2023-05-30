@@ -55,4 +55,15 @@ public class BookService {
         // Return the book that was checked out
         return book.get();
     }
+
+    public Boolean checkoutBookByUser(String userEmail, Long bookId){
+        Checkout validateCheckout = checkoutRepository.findByUserEmailAndBookId(userEmail, bookId); // Retrieves a Checkout object from the checkoutRepository based on the given userEmail and bookId
+
+        if(validateCheckout != null){ // Checks if the validateCheckout object is not null
+            return true; // Returns true if a checkout record exists for the user and book combination
+        }else{
+            return false; // Returns false if no checkout record exists for the user and book combination
+        }
+    }
+
 }
