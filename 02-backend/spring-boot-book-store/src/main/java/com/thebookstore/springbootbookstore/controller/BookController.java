@@ -16,10 +16,15 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    @GetMapping("/secure/ischeckedout/byuser")
+    public Boolean checkoutBookByUser(@RequestParam Long bookId){
+        String userEmail = "testuser@email.com"; // The user's email address
+        return bookService.checkoutBookByUser(userEmail, bookId); // Calls the checkoutBookByUser method of the BookService to check if the book is checked out by the user and returns a Boolean result
+    }
+
     @PutMapping("/secure/checkout") // Maps HTTP PUT requests to the /secure/checkout endpoint
     public Book checkoutBook (@RequestParam Long bookId) throws Exception {
         String userEmail = "testuser@email.com"; // The user's email address
-
         return bookService.checkoutBook(userEmail, bookId); // Calls the checkoutBook method of the BookService to process the book checkout and returns the Book object
     }
 }
