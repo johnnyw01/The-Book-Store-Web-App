@@ -2,6 +2,7 @@ package com.thebookstore.springbootbookstore.controller; // Specifies the packag
 
 import com.thebookstore.springbootbookstore.entity.Book; // Imports the Book class from the specified package
 import com.thebookstore.springbootbookstore.service.BookService; // Imports the BookService class from the specified package
+import com.thebookstore.springbootbookstore.utils.ExtractJWT;
 import org.springframework.beans.factory.annotation.Autowired; // Imports the annotation for autowiring dependencies
 import org.springframework.web.bind.annotation.*; // Imports annotations for defining HTTP endpoints and handling requests
 
@@ -17,20 +18,20 @@ public class BookController {
     }
 
     @GetMapping("/secure/currentloans/count")
-    public int currentLoansCount(){
-        String userEmail = "testuser@email.com"; // The user's email address
+    public int currentLoansCount(@RequestHeader(value = "Authorization") String token){
+        String userEmail = ExtractJWT.payLoadJWTExtraction(token, "\"sub\"");
         return bookService.currentLoansCount(userEmail); // Calls the currentLoansCount method of the BookService to get the count of current book loans for the user and returns an integer result
     }
 
     @GetMapping("/secure/ischeckedout/byuser")
-    public Boolean checkoutBookByUser(@RequestParam Long bookId){
-        String userEmail = "testuser@email.com"; // The user's email address
+    public Boolean checkoutBookByUser(@RequestHeader(value = "Authorization") String token, @RequestParam Long bookId){
+        String userEmail = ExtractJWT.payLoadJWTExtraction(token, "\"sub\"");
         return bookService.checkoutBookByUser(userEmail, bookId); // Calls the checkoutBookByUser method of the BookService to check if the book is checked out by the user and returns a Boolean result
     }
 
     @PutMapping("/secure/checkout") // Maps HTTP PUT requests to the /secure/checkout endpoint
-    public Book checkoutBook (@RequestParam Long bookId) throws Exception {
-        String userEmail = "testuser@email.com"; // The user's email address
+    public Book checkoutBook (@RequestHeader(value = "Authorization") String token, @RequestParam Long bookId) throws Exception {
+        String userEmail = ExtractJWT.payLoadJWTExtraction(token, "\"sub\"");
         return bookService.checkoutBook(userEmail, bookId); // Calls the checkoutBook method of the BookService to process the book checkout and returns the Book object
     }
 }
